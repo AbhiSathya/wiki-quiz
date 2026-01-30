@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.models import Quiz  # Ensure models are imported for metadata creation
 from app.db import Base, engine
 
 app = FastAPI(
