@@ -1,10 +1,15 @@
 from fastapi import FastAPI
+from app.models import Quiz  # Ensure models are imported for metadata creation
 from app.db import Base, engine
+from app.routes import quiz, history
 
 app = FastAPI(
     title="Wiki Quiz Generator",
     version="1.0.0"
 )
+
+app.include_router(quiz.router)
+app.include_router(history.router)
 
 @app.on_event("startup")
 def startup_event():
@@ -14,5 +19,5 @@ def startup_event():
 def health_check():
     return {
         "status": "ok",
-        "message": "Wiki Quiz API running in Docker 🚀"
+        "message": "Wiki Quiz API running in Docker container."
     }
