@@ -1,8 +1,8 @@
-📘 Wiki Quiz Generator (LLM-Powered)
-🚀 Overview
+# 📘 Wiki Quiz Generator (LLM-Powered)
+###  Overview
 Wiki Quiz Generator is a full‑stack application that accepts a Wikipedia article URL and automatically generates a quiz using a Large Language Model (LLM).
 
-The system:
+#The system:
 
  Scrapes Wikipedia articles (HTML only, no Wikipedia API)
 
@@ -14,8 +14,8 @@ The system:
 
  Includes bonus features like Take Quiz mode, URL preview, section‑wise grouping, and caching indicator
 
-✨ Features
-Core Features
+# ✨ Features
+### Core Features
  Accepts Wikipedia article URL
 
  Scrapes and cleans article content using BeautifulSoup
@@ -42,7 +42,7 @@ Explanation
 
  Modal view for quiz details
 
-Bonus Features
+### Bonus Features
  Take Quiz mode with scoring and feedback
 
  URL preview (auto‑fetch article title before generation)
@@ -53,8 +53,8 @@ Bonus Features
 
  Fully Dockerized backend + database
 
-🏗️ Tech Stack
-Backend
+# 🏗️ Tech Stack
+### Backend
 
 FastAPI
 
@@ -70,7 +70,7 @@ BeautifulSoup
 
 Docker
 
-Frontend
+### Frontend
 
 React
 
@@ -80,59 +80,82 @@ TypeScript
 
 Tailwind CSS
 
-📂 Project Structure
+# 📂 Project Structure
 Code
 wiki-quiz/
+
 │
+
 ├── backend/
+
 │   ├── app/
+
 │   │   ├── routes/
+
 │   │   ├── models.py
+
 │   │   ├── schemas.py
+
 │   │   ├── scraper.py
+
 │   │   ├── llm.py
+
 │   │   ├── prompts.py
+
 │   │   └── main.py
+
 │   ├── Dockerfile
+
 │   └── requirements.txt
+
 │
+
 ├── frontend/
+
 │   └── wiki-quiz-frontend/
+
 │
+
 ├── sample_data/
+
 │   ├── urls.txt
+
 │   └── alan_turing.json
+
 │
+
 ├── docker-compose.yml
+
 └── README.md
-⚙️ Setup Instructions
-1️⃣ Prerequisites
+
+# ⚙️ Setup Instructions
+### 1️⃣ Prerequisites
 Docker & Docker Compose
 
 Node.js  (v18+)
 
 Gemini API Key
 
-2️⃣ Environment Variables
+### 2️⃣ Environment Variables
 Create a .env file at project root:
 
 Code
 GOOGLE_API_KEY=your_gemini_api_key_here
-3️⃣ Run Backend + Database
+### 3️⃣ Run Backend + Database
 bash
 docker-compose up --build
 Backend runs at: http://localhost:8000
 
 Swagger docs: http://localhost:8000/docs
 
-4️⃣ Run Frontend
+### 4️⃣ Run Frontend
 bash
 cd frontend/wiki-quiz-frontend
 npm install
 npm run dev
 Frontend runs at: http://localhost:5173
 
-🔌 API Endpoints
+### 🔌 API Endpoints
 Generate Quiz
 http
 POST /quiz/generate
@@ -152,7 +175,7 @@ Quiz Details
 http
 GET /quiz/{id}
 
-## 🧠 Prompt Templates Used
+# 🧠 Prompt Templates Used
 The following prompt templates are used to ensure structured, grounded,
 and hallucination-minimized LLM outputs.
 
@@ -202,14 +225,14 @@ Wikipedia Article:
 {article_text}
 """
 
-🧪 Sample Data
+# 🧪 Sample Data
 Located in sample_data/:
 
 urls.txt — tested Wikipedia URLs
 
 alan_turing.json — sample API response
 
-## 📸 Screenshots
+# 📸 Screenshots
 
 ### Generate Quiz Page
 ![Generate Quiz Screenshot](docs/generate_quiz.png)
@@ -223,7 +246,7 @@ alan_turing.json — sample API response
 
 
 
-🙌 Final Note
+# 🙌 Final Note
 This project demonstrates:
 
 Full‑stack development
