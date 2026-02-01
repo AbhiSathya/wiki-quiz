@@ -235,14 +235,14 @@ alan_turing.json — sample API response
 # 📸 Screenshots
 
 ### Generate Quiz Page
-![Generate Quiz Screenshot](docs/generate_quiz.png)
+![Generate Quiz Screenshot](screenshots/generate_quiz.png)
 
 ### History Page
-![History Screenshot](docs/history_tab.png)
-![History Modal Screenshot](docs/history_modal.png)
+![History Screenshot](screenshots/history_tab.png)
+![History Modal Screenshot](screenshots/history_modal.png)
 
 ### Take Quiz Mode
-![Take Quiz Screenshot](docs/quiz_score.png)
+![Take Quiz Screenshot](screenshots/quiz_score.png)
 
 
 
