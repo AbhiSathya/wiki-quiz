@@ -5,13 +5,14 @@ Using ONLY the information from the Wikipedia article below,
 generate 5 to 10 multiple-choice questions.
 
 Rules:
+- Each question must belong to ONE section from the article
+- Section must be chosen from the article headings
 - Each question must have exactly 4 options
 - Only ONE correct answer
-- Difficulty must be one of: easy, medium, hard
-- Explanation must reference the article content
-- DO NOT hallucinate facts
+- Difficulty: easy, medium, hard
+- Explanation grounded in article text
 - Output MUST be valid JSON
-- Do not include any text outside the JSON (no comments, no markdown, no explanations)
+- DO NOT add extra text
 
 Wikipedia Article:
 {article_text}
@@ -19,6 +20,7 @@ Wikipedia Article:
 Return JSON strictly in this format:
 [
   {{
+    "section": "",
     "question": "",
     "options": ["", "", "", ""],
     "answer": "",
@@ -27,6 +29,8 @@ Return JSON strictly in this format:
   }}
 ]
 """
+
+
 
 
 
