@@ -19,6 +19,19 @@ def get_db():
 
 router = APIRouter(prefix="/quiz", tags=["Quiz"])
 
+@router.get("/preview")
+def preview_article(url: str):
+    """
+    Fetch Wikipedia title for URL preview
+    """
+    try:
+        scraped = scrape_wikipedia(url)
+        return {
+            "title": scraped["title"]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail="Invalid Wikipedia URL")
+
 
 @router.post("/generate", response_model=GenerateQuizResponse)
 def generate_quiz_api(
@@ -28,7 +41,9 @@ def generate_quiz_api(
     # 1. Cache check
     existing = db.query(Quiz).filter(Quiz.url == str(request.url)).first()
     if existing:
-        return build_quiz_response(existing)
+        response = build_quiz_response(existing, cached=True)
+        return response
+
 
     # 2. Scrape
     try:
@@ -56,7 +71,8 @@ def generate_quiz_api(
     db.commit()
     db.refresh(quiz)
 
-    return build_quiz_response(quiz, scraped["sections"])
+    return build_quiz_response(quiz, scraped["sections"], cached=False)
+
 
 
 @router.get("/{quiz_id}", response_model=GenerateQuizResponse)

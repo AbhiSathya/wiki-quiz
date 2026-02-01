@@ -2,11 +2,25 @@ from fastapi import FastAPI
 from app.models import Quiz  # Ensure models are imported for metadata creation
 from app.db import Base, engine
 from app.routes import quiz, history
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="Wiki Quiz Generator",
     version="1.0.0"
 )
+
+origins = [
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,          # or ["*"] to allow all
+    allow_credentials=True,
+    allow_methods=["*"],            # allow all HTTP methods
+    allow_headers=["*"],            # allow all headers
+)
+
 
 app.include_router(quiz.router)
 app.include_router(history.router)

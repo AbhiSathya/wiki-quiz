@@ -1,5 +1,5 @@
 from pydantic import BaseModel, HttpUrl
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from datetime import datetime
 
 class QuizQuestion(BaseModel):
@@ -23,6 +23,7 @@ class GenerateQuizResponse(BaseModel):
 
     quiz: List[QuizQuestion]
     related_topics: List[str]
+    cached: Optional[bool] = False
 
 
 class QuizHistoryItem(BaseModel):
